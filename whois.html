@@ -92,7 +92,7 @@
         in eine Datei geschrieben, die wir „whois_IP-Adresse.txt“ nennen. Auch hier wird die IP-Adresse wieder durch $0
         repräsentiert.</p>
       <p>Anschließend erfolgt wiederum ein whois, dieses Mal ist es jedoch der eigentliche Befehl, wieder einmal gefolgt von
-        der IP-Adresse. Über eine doppelte Ausleitung mittels » wird das whois-Ergebnis nun an die zuvor erstellte Datei
+        der IP-Adresse. Über eine doppelte Ausleitung mittels >> wird das whois-Ergebnis nun an die zuvor erstellte Datei
         angehängt. Eine doppelte Ausleitung ist erforderlich, weil sonst unsere zuvor eingefügte „Überschrift“ überschrieben
         würde. Schließlich folgt mittels sleep 5 eine Pause von 5 Sekunden zwischen den Abfragen, nicht dass der Server davon
         ausgeht, wir hätten einen DoS-Angriff vor. Ganz am Ende steht nach der Pipe ein sh, dies führt dazu, dass unser Befehl

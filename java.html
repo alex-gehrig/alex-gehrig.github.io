@@ -56,25 +56,24 @@
         <br>
         <br>
         <h1>Java installieren</h1>
-        <p class="lead">Es kann vorkommen, dass man Java benötigt, beispielsweise weil eine andere Software dies benötigt. Die
-          Installation ist jedoch etwas komplizierter, wie man bei
+        <p class="lead">Es kann vorkommen, dass man Java installieren muss, beispielsweise weil eine andere Software dies
+          benötigt. Die Installation ist jedoch etwas komplizierter, wie man bei
           <a href="https://wiki.ubuntuusers.de/Java/Installation/Oracle_Java/Java_8/" target="_blank">wiki.ubuntuusers</a> nachlesen kann.
           Ich selbst habe mich für die Variante entschieden, bei der man Java von „webupd8team“ herunterlädt.</p>
 
-        <p>Die Vorgehensweise unterscheidet sich zwischen Ubuntu 16.04 und ElementaryOS 0.4</p>
+        <p>Die Vorgehensweise unterscheidet sich zwischen Ubuntu 16.04 und ElementaryOS 0.4.</p>
       </div>
 
       <h2>Ubuntu 16.04</h2>
       <p>Unter Ubuntu 16.04 konnte ich Java in der Version 8 mit folgenden Befehlen erfolgreich installieren:</p>
       <ul>
-        <li><p class="befehl">sudo add-apt-repository ppa:webupd8team/java</p></li>
-        <li><p class="befehl">sudo apt-get update<p></li>
-        <li><p class="befehl">sudo apt-get install oracle-java8-installer</p></li>
+        <li><p class="befehl">sudo add-apt-repository ppa:webupd8team/java</p>
+          <p>um das Repository von "webupd8team" den Paketquellen hinzuzufügen</p></li>
+        <li><p class="befehl">sudo apt-get update<p>
+          <p>um die Paketquellen abzufrageb und die Liste der zur Verfügung stehenden Software zu aktualisieren</p></li>
+        <li><p class="befehl">sudo apt-get install oracle-java8-installer</p>
+          <p>um die Installation zu starten</p></li>
       </ul>
-
-      <p>Mit dem ersten Befehl wird das Repository von "webupd8team" den Paketquellen hinzugefügt. Mit dem zweiten Befehl
-      werden die Paketquellen dann abgefragt und die Liste der zur Verfügung stehende Software aktualisiert. Der dritte Befehl
-      schließlich startet die Installation.</p>
 
       <h2>ElementaryOS 0.4</h2>
       <p>Da ich auch ElementaryOS einsetze, dachte ich, das geht genauso. Ist ja schließlich auch ein Ubuntu.
