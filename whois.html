@@ -82,7 +82,7 @@
       </p>
 
       <p>Zur Abfrage wird folgender Befehl genutzt:</p>
-      <p class="befehl">cat IP-Adressen.txt | awk '{print "echo whois-Ergebnis für: “ $0 " > whois_“ $0 ".txt; whois “ $0 " > whois_“ $0 ".txt; sleep 5“}' | sh</p>
+      <p class="befehl">cat IP-Adressen.txt | awk '{print "echo whois-Ergebnis für: “ $0 " > whois_“ $0 ".txt; whois “ $0 " >> whois_“ $0 ".txt; sleep 5“}' | sh</p>
 
       <p>Nun zur Erklärung des Befehls - ich gehe ihn „von vorne nach hinten“ durch. Mittels cat erfolgt eine Ausgabe des
         Dateiinhalts auf der Bash, tatsächlich bekommen wir aufgrund der nachfolgenden Befehle aber nichts zu sehen. Anschließend
