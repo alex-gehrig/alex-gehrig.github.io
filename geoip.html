@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+
+    <!--  Dokumentkompatibilitätsmodus für IE-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>Mein Linux-Wiki</title>
+
+    <!-- Bootstrap Haupt-CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Bootstrap Theme-CSS -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+
+    <!-- Eigenes CSS -->
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <!-- screen reader haben Probleme, wenn nicht jede Eingabe ein Label hat -->
+            <span class="sr-only">Navigation ein/ausblenden</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Mein Blog</a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Startseite</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="inhalt">
+        <br>
+        <br>
+        <h1>GeoIP-Lookup</h1>
+        <p class="lead">Wir haben nun eventuell viele IP-Adressen mittels egrep aus einem Weblog extrahiert, es sind aber nur
+          bestimmte IP-Adressen für uns interessant, beispielsweise die IP-Adressen deutscher Provider oder Server. Hierfür
+          benutzt man den sogenannten GeoIP-Lookup. Eine verlässliche räumliche Zuordnung (bis hin zu Straße und Hausnummer)
+          gehört in das Reich des Wunschdenkens. Aber zumindest die Zuordnung zu einem Land ist als recht sicher anzusehen.</p>
+      </div>
+
+      <p>Wir benötigen zuerst den passenden Befehl, den wir mittels</p>
+        <p class="befehl">sudo apt-get install geoip-bin</p>
+      <p>installieren.</p>
+
+      <h2>Datenbank herunterladen</h2>
+      <p>Anschließend benötigen wir noch eine Datenbank, in der wir nachschlagen können. Die Firma Maxmind hat solche Datenbanken
+        „im Angebot“, und zwar auch kostenlose. Die Datenbanken (es sind derer zwei) liegen nach dem Download unter<br>
+        /usr/share/GeoIP.</p>
+      <p>Die Datenbanken werden jeden ersten Dienstag im Monat aktualisiert, man muss also regelmäßig updaten. Wir bedienen uns
+        daher dieses Skripts:</p>
+
+      <p class="befehl">#!/bin/bash<br>
+        cd /usr/share/GeoIP<br>
+        wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz || { echo 'Could not download GeoLiteCountry, exiting.' ; exit 1; }<br>
+        wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz || { echo 'Could not download GeoLiteCity, exiting.' ; exit 1; }<br>
+        gunzip -f GeoIP.dat.gz<br>
+        gunzip -f GeoLiteCity.dat.gz<br>
+        echo "y“|mv GeoLiteCity.dat GeoIPCity.dat</p>
+
+      <p>Dieses Skript speichern wir im o.g. Verzeichnis und führen es dann bei Bedarf mittels</p>
+      <p class="befehl">sudo ./update.sh</p>
+      <p>aus. Lautet der frei gewählte Dateiname des Skripts anders, muss der Befehl natürlich entsprechend angepasst werden.</p>
+      <p>Nun können wir mittels</p>
+      <p class="befehl">geoiplookup 123.123.123.123</p>
+      <p>über die Bash den GeoIP-Lookup durchführen. Die IP-Adresse  ist natürlich wieder nur exemplarisch.</p>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap Haupt-JavaScript -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>
