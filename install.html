@@ -85,6 +85,21 @@
         <p class="befehl">dpkg -i *.deb</p>
         Durch den Platzhalter " * " werden alle Dateien ausgewählt, die die Suffix „.deb“ haben.</p>
 
+      <h2>Probleme mit Abhängigkeiten</h2>
+      <p>Ich selbst habe es äußerst selten erlebt, dass es Probleme mit Abhängigkeiten gibt, weil - meines Erachtens nach - Linux
+        da sehr gut und sauber arbeitet. Erforderliche Abhängigkeiten wurden erkannt und die nötigen Sachen gleich
+        mitinstalliert.</p>
+
+      <p>Als ich unter elementaryOS 0.4 allerdings TeamViewer installieren wollte, wurde ich mit diesem Problem konfontiert. Ein
+        Öffnen des Debian-Pakets mit dem Anwendungsmanager erbrachte keinen Erfolg, und so installierte ich TeamViewer über
+        die Kommandozeile. Die Abhängigkeiten wurde dummerweise nicht erfüllt, was ich in Form einer Fehlermeldung
+        angezeigt bekam. Wie nun das Problem lösen?</p>
+
+      <p>Nach einem kurzen Blick in die manpage von apt-get war die Lösung schnell gefunden:</p>
+      <p class="befehl">sudo apt-get install -f</p>
+      <p>Durch den Parameter "-f" versucht apt-get fehlerhafte Abhängigkeiten zu korrigieren (f = fix broken). Und siehe da:
+        es hat geklappt!</p>
+
     </div><!-- /.container -->
 
 
