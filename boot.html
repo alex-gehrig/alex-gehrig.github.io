@@ -44,6 +44,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.html">Startseite</a></li>
+            <li><a href="links.html">Links</a></li>
           </ul>
         </div><!--/.nav-collapse -->
 
@@ -60,7 +61,17 @@
           dass alte Versionen des Linux-Kernels noch auf der HDD liegen und somit unnötig Speicherplatz belegen.</p>
       </div>
 
-      <p>Mittels</p>
+      <p>Der unnötig komplizierte Weg ist nach wie vor weiter unten beschrieben. Wesentlich einfacher, komfortabler,
+      schneller und umfangreicher geht es auch... Nur entdeckt man solche Sachen unter Umständen erst später, so war das auch
+      hier der Fall. Um ältere und nicht mehr benötigte Pakete zu entfernen - und dazu gehören auch alte Versionen
+      des Kernels - reicht es aus, folgenden Befehl auszuführen:</p>
+      <p class="befehl">sudo apt-get autoremove</p>
+      <p>Wie man es von apt-get gewohnt ist, erscheint auch bei der Verwendung von autoremove eine Info was bzw. wie
+      viele Pakete entfernt werden können und wie viel Speicherplatz das voraussichtlich freiräumen wird. Nun kann man sich
+      entscheiden, ob man die Dateioperationen durchführen lassen möchte oder nicht.</p>
+
+
+      <p>Und hier nach wie vor der komplizierte Weg: Mittels</p>
       <p class="befehl">dpkg -l linux-image*</p>
       <p>kann man sich anzeigen lassen, welche Versionen des Linux-Kernels installiert sind. Die Option -l führt zu einer
         Auflistung der angegebenen installierten Pakete.</p>
