@@ -79,7 +79,7 @@
         wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz || { echo 'Could not download GeoLiteCity, exiting.' ; exit 1; }<br>
         gunzip -f GeoIP.dat.gz<br>
         gunzip -f GeoLiteCity.dat.gz<br>
-        echo "y“|mv GeoLiteCity.dat GeoIPCity.dat</p>
+        echo "y"|mv GeoLiteCity.dat GeoIPCity.dat</p>
 
       <p>Dieses Skript speichern wir im o.g. Verzeichnis und führen es dann bei Bedarf mittels</p>
       <p class="befehl">sudo ./update.sh</p>
