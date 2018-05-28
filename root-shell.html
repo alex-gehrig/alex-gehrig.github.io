@@ -43,7 +43,7 @@
 
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Startseite</a></li>
+            <li><a href="index.html">Startseite</a></li>
           </ul>
         </div><!--/.nav-collapse -->
 
@@ -55,29 +55,25 @@
       <div class="inhalt">
         <br>
         <br>
-        <h1>Willkommen!</h1>
-        <p class="lead">Dieses Wiki soll eine kleine Hilfe im Umgang bzw. der Nutzung von Linux geben. Im Idealfall sind die
-          vorgestellten Befehle bzw. Vorgehensweisen „universell“ einsetzbar. Grundsätzlich weise ich jedoch darauf hin, dass
-          ich Ubuntu (derzeit in der Version 16.04) und elementaryOS (derzeit in der Version 0.4.1) verwende.</p>
-
-        <p class="lead">Insgesamt soll hier kein umfassendes Kompendium zu Linux entstehen, es gibt genügend Seiten im Internet.
-          Hier sollen eher spezifische Probleme bzw. deren (mögliche) Lösung gesammelt werden. Wer sich mehr informieren möchte,
-          dem sei stets die Manpage des jeweiligen Befehls oder aber die meines Erachtens nach tolle Webseite
-          <a href="https://wiki.ubuntuusers.de/Startseite" target="_blank">ubuntuusers</a> empfohlen.</p>
+        <h1>Root-Shell</h1>
+        <p class="lead">Die Kommandozeile unter Linux ist sehr mächtig, und wenn man einen unbedachten Befehl absetzt kann es
+        vorkommen, dass man sich etwas "zerschießt". So erging es mir als ich großzügig die Benutzerrechte eines Ordners
+        samt Unterordnern ändern wollte. Dummerweise erwischte ich den falschen Ordner und prompt ging kein Befehl mehr, der
+        Superuser-Rechte voraussetzt, da der Nutzer "sudo" nicht mehr Besitzer hierfür notwendiger Dateien war...</p>
       </div>
 
-      <h2>Inhaltsverzeichnis:</h2>
+      <p>Um "sudo" wieder in den Besitz der nötigen Rechte zu bringen funktionierte folgende Vorgehensweise:</p>
       <ul>
-        <li><a href="install.html">Installation von Programmen bzw. Befehlen</a></li>
-        <li><a href="base64.html">Base 64</a></li>
-        <li><a href="grep.html">Suchfunktionen mit der Bash</a></li>
-        <li><a href="whois.html">whois-Abfragen</a></li>
-        <li><a href="geoip.html">GeoIP-Lookup</li>
-        <li><a href="teamviewer.html">TeamViewer</li>
-        <li><a href="boot.html">Boot-Partition aufräumen</li>
-        <li><a href="java.html">Java installieren</a></li>
-        <li><a href="root-shell.html">Root-Shell</li>
-        <li><a href="virtualbox-ohne-gui.html">Ubuntu in VirtualBox ohne GUI installieren</li>
+          <li>Computer neu starten, in GRUB den Recovery-Modus auswählen</li>
+          <li>root-Shell starten</li>
+          <li class="befehl">mount -rw -o remount /</li>
+          <li class="befehl">chown root /usr/lib/sudo/sudoers.so</li>
+          <li class="befehl">reboot</li>
+      </ul>
+
+      <p>Der erste Befehl dient dazu, das komplette Filesystem (daher "/") schreibend einzubinden. Mit dem zweiten Befehl werden
+      mittels "chown" die korrekte Benutzerrechte für die Datei "sudoers.so" hergestellt. Nach dem nun folgenden Reboot kann man
+      sich in Ruhe um die Wiederherstellung der restlichen Benutzerrechte kümmern.</p>
 
     </div><!-- /.container -->
 

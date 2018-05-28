@@ -43,7 +43,7 @@
 
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Startseite</a></li>
+            <li><a href="index.html">Startseite</a></li>
           </ul>
         </div><!--/.nav-collapse -->
 
@@ -55,29 +55,27 @@
       <div class="inhalt">
         <br>
         <br>
-        <h1>Willkommen!</h1>
-        <p class="lead">Dieses Wiki soll eine kleine Hilfe im Umgang bzw. der Nutzung von Linux geben. Im Idealfall sind die
-          vorgestellten Befehle bzw. Vorgehensweisen „universell“ einsetzbar. Grundsätzlich weise ich jedoch darauf hin, dass
-          ich Ubuntu (derzeit in der Version 16.04) und elementaryOS (derzeit in der Version 0.4.1) verwende.</p>
-
-        <p class="lead">Insgesamt soll hier kein umfassendes Kompendium zu Linux entstehen, es gibt genügend Seiten im Internet.
-          Hier sollen eher spezifische Probleme bzw. deren (mögliche) Lösung gesammelt werden. Wer sich mehr informieren möchte,
-          dem sei stets die Manpage des jeweiligen Befehls oder aber die meines Erachtens nach tolle Webseite
-          <a href="https://wiki.ubuntuusers.de/Startseite" target="_blank">ubuntuusers</a> empfohlen.</p>
+        <h1>Ubuntu in VirtualBox ohne GUI installieren</h1>
+        <p class="lead">Virtuelle Maschinen sind eine praktische Sache und so kann es vorkommen, dass man sich eine solche
+        in Form von Ubuntu installiert, aber ohne GUI. Im Anschluss stellt sich dann die Frage: wie kann man die Erweiterungen
+        installieren, damit man beispielsweise "gemeinsame Ordner" nutzen kann, um Daten zwischen Host und Gast auszutauschen?</p>
       </div>
 
-      <h2>Inhaltsverzeichnis:</h2>
+      <p>Wie so oft ist es eigentlich gar nicht so schwer - wenn man weiß was man tun muss:</p>
       <ul>
-        <li><a href="install.html">Installation von Programmen bzw. Befehlen</a></li>
-        <li><a href="base64.html">Base 64</a></li>
-        <li><a href="grep.html">Suchfunktionen mit der Bash</a></li>
-        <li><a href="whois.html">whois-Abfragen</a></li>
-        <li><a href="geoip.html">GeoIP-Lookup</li>
-        <li><a href="teamviewer.html">TeamViewer</li>
-        <li><a href="boot.html">Boot-Partition aufräumen</li>
-        <li><a href="java.html">Java installieren</a></li>
-        <li><a href="root-shell.html">Root-Shell</li>
-        <li><a href="virtualbox-ohne-gui.html">Ubuntu in VirtualBox ohne GUI installieren</li>
+          <li>Virtuelle Maschine starten und sich anmelden</li>
+          <li class="befehl">sudo apt-get install virtualbox-guest-additions-iso</li>
+          <li>das heruntergeladene iso-Image liegt nun unter /usr/share/virtualbox/VBoxGuestAdditions.iso</li>
+          <li class="befehl">sudo mkdir /mnt/cdrom</li>
+          <li class="befehl">sudo mount /usr/share/virtualbox/VBoxGuestAdditions.iso /mnt/cdrom</li>
+          <li class="befehl">sudo sh ./VBoxLinuxAdditions.run</li>
+      </ul>
+
+      <p>Mit dem ersten Befehl lädt man die Erweiterungen herunter. Mit dem zweiten Befehl erstellt man sich ein Verzeichnis,
+      in welches man mit dem dritten Befehl das iso-Image anschließend einbindet. Nun muss man lediglich nich dorthin navigieren
+      und kann dann mittels des vierten und letzten Befehls die Installation starten.</p>
+
+      <p>Anschließend muss man bloß noch die Installation abnicken und abwarten.</p>
 
     </div><!-- /.container -->
 

@@ -61,7 +61,7 @@
           <a href="https://wiki.ubuntuusers.de/Java/Installation/Oracle_Java/Java_8/" target="_blank">wiki.ubuntuusers</a> nachlesen kann.
           Ich selbst habe mich für die Variante entschieden, bei der man Java von „webupd8team“ herunterlädt.</p>
 
-        <p>Die Vorgehensweise unterscheidet sich zwischen Ubuntu 16.04 und ElementaryOS 0.4.</p>
+        <p>Die Vorgehensweise unterscheidet sich zwischen Ubuntu 16.04 und ElementaryOS 0.4.1.</p>
       </div>
 
       <h2>Ubuntu 16.04</h2>
@@ -75,10 +75,14 @@
           <p>um die Installation zu starten</p></li>
       </ul>
 
-      <h2>ElementaryOS 0.4</h2>
+      <h2>ElementaryOS 0.4.1</h2>
       <p>Da ich auch ElementaryOS einsetze, dachte ich, das geht genauso. Ist ja schließlich auch ein Ubuntu.
         Stimmte aber nicht…</p>
+      <p><strong>Update:</strong> Durch ein Nachinstallieren von software-properties-common kann man zum Hinzufügen des ppa genauso
+      vorgehen wie weiter oben für Ubuntu beschrieben!</p>
+      <p class="befehl">sudo apt-get install software-properties-common</p>
 
+      <p>Ansonsten geht man so vor:</p>
       <ul>
         <li><p class="befehl">sudo apt edit-sources</p>
           <p>um Zugriff auf die Datei zu erhalten, in welcher die Paketquellen verwaltet werden. Beim folgenden Dialog
