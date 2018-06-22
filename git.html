@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+
+    <!--  Dokumentkompatibilitätsmodus für IE-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>git-Basics</title>
+
+    <!-- Bootstrap Haupt-CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Bootstrap Theme-CSS -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+
+    <!-- Eigenes CSS -->
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <!-- screen reader haben Probleme, wenn nicht jede Eingabe ein Label hat -->
+            <span class="sr-only">Navigation ein/ausblenden</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Mein Blog</a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="programmierung.html">Programmierung</a></li>
+            <li class="active"><a href="git.html">git-Basics</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="inhalt">
+        <br>
+        <br>
+        <h1>git-Basics</h1>
+        <p class="lead">Versionsverwaltung und -kontrolle ist immer ein Thema, wenn man an größeren Projekten arbeitet.
+        Wobei es natürlich höchst individuell ist, was "größer" bedeutet. Verschiedene Systeme stehen zur Auswahl, wobei
+        das am weitesten verbreitet "git" sein dürfte.</p>
+      </div>
+
+      <p>Wer sich intensiver mit diesem Thema befassen möchte, dem sei das "Pro Git book" empfohlen:
+      <a href="https://git-scm.com/book/en/v2" target="_blank">https://git-scm.com/book/en/v2</a></p>
+
+      <p>Im folgenden möchte ich versuchen, einen kleinen Überblick über Standard-Situationen und die dazugehörigen Befehle
+      für die Verwendung auf der Linux-Bash zu geben. Zunächst brauchen wir ein Verzeichnis, in dem wir die Daten unseres
+      Projekts speichern wollen. Dann muss man festlegen, dass eine Versionskontrolle mit git erfolgen soll. Im Anschluss
+      daran brauchen wir dann Befehle für das Hinzufügen einzelner Dateien zur Versionskontrolle, das Anfertigen der Commits,
+      also der "Schnappschüsse" wenn man das so bezeichnen möchte, etc.</p>
+
+      <h2>Grundsätzliche Einstellungen</h2>
+      <ul>
+          <li>Eigenen Namen festlegen:
+              <p class="befehl">git config --global user.name "John Doe"</p></li>
+          <li>Eigene Email-Adresse festlegen:
+              <p class="befehl">git config --global user.email johndoe@example.com</p></li>
+      </ul>
+      <p>Ohne "--global" werden die Festlegungen nur für den aktuellen Ordner, also das aktuelle Projekt vorgenommen.</p>
+
+
+      <h2>Arbeitsschritte im Projekt</h2>
+      <ul>
+          <li>Versionskontrolle aktivieren:
+          <p class="befehl">git init</p></li>
+          <li>Den aktuellen Stand abrufen:
+              <p class="befehl">git status</p></li>
+          <li>Eine Datei namens datei.py für den nächsten Commit vormerken:
+              <p class="befehl">git add datei.py</p>
+              ...oder alternativ mehrere Dateien per Wildcard:
+              <p class="befehl">git add *.py</p></li>
+          <li>Einen Commit mit dem Hinweistext "Mein Commit" vornehmen:
+              <p class="befehl">git commit -m "Mein Commit"</p></li>
+          <li>Den Commit mit einem online verfügbaren Projekt (Branch = "master") synchronisieren:
+              <p class="befehl">git push https://www.meindienst/mein-benutzername/mein-projekt master</p></li>
+          <li>Von einem anderen PC die nun neuen Daten aktualisieren:
+              <p class="befehl">git pull</p></li>
+      </ul>
+
+      <h2>Nach dem Erstellen eines Repositorys</h2>
+      <ul>
+          <li>Repository (=online) mit lokalem Verzeichnis "verknüpfen":
+          <p class="befehl">git remote add origin https://meindienst/mein-benutzername/mein-projekt.git</p></li>
+      </ul>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap Haupt-JavaScript -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>
