@@ -60,7 +60,8 @@
         kann man beispielsweise eines oder mehrere Dokumente nach Begriffen oder - mittels Regulärer Ausdrücke - nach
         Mustern durchsuchen.</p>
         <p class="lead">Ziel ist hier definitiv <b>nicht</b>, eine umfassende Abhandlung zu liefern. Wer tiefer schürfen will,
-           dem seien wiki.ubuntuusers oder die jeweilige Manpage empfohlen.</p>
+           dem seien <a href="https://wiki.ubuntuusers.de/grep" target="_blank">wiki.ubuntuusers.de</a> oder die
+           jeweilige Manpage empfohlen.</p>
       </div>
 
       <h2>Kurze Übersicht</h2>
@@ -84,18 +85,30 @@
         <li><p class="befehl">egrep 'Mein Muster' text.txt</p></li>
       </ol>
 
-      <p>zu nutzen (hier wird cat nicht „missbraucht“)</p>
+      <p>zu nutzen (im zweiten Beispiel wird cat nicht „missbraucht“)</p>
 
       <h2>Reguläre Ausdrücke</h2>
       <p>Und hier nun die Sammlung der Regulären Ausdrücke</p>
 
       <ul>
         <li><p>IPv4-Adressen</p>
-          <p class="befehl">([0-9]{1,3}\.){3}[0-9]{1,3}</p></li>
-        <li><p>BTC-Adressen</p>
+          <p class="befehl">([0-9]{1,3}\.){3}[0-9]{1,3}</p>
+        </li>
+        <li><p>Legacy-BTC-Adressen</p>
           <p class="befehl">^[13][a-zA-Z0-9]{26,35}$</p>
           <p class="befehl">^[13][a-km-zA-HJ-NP-Z1-9]{26,35}$</p>
-          <p class="befehl">^1[1-9A-Za-z][^OlI]{26,35}$</p></li>
+          <p class="befehl">^1[1-9A-Za-z][^OlI]{26,35}$</p>
+        </li>
+        <li>
+          <p>SegWit-BTC-Adressen</p>
+          <p class="befehl">^bc1[^1bio]{14,74}</p>
+          <p>SegWit-BTC-Adressen beginnen immer mit "bc" ("tb" für Testnet) im HRP (Human Readable Part), gefolgt vom Datenteil,
+              der eine Angabe der Segwit-Version (zwischen 0 und 16 - beide Ziffern jeweils inklusive) und den restlichen Datenteil
+              enthält. Dieser restliche Datenteil darf "1", "b", "i" und "o" nicht enthalten. Üblicherweise werden die SegWit-BTC-Adressen
+              in Kleinbuchstaben geschrieben, Großbuchstaben oder mixed case ist aber grundsätzlich genauso valide. Für weitere
+              Informationen wird auf <a href="https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki#Segwit_address_format" target="_blank">
+              BIP173</a> verwiesen.</p>
+        </li>
       </ul>
 
     </div><!-- /.container -->
