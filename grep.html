@@ -101,13 +101,14 @@
         </li>
         <li>
           <p>SegWit-BTC-Adressen</p>
-          <p class="befehl">^bc1[^1bio]{14,74}</p>
+          <p class="befehl">^bc1[^1bio]{11,71}$</p>
           <p>SegWit-BTC-Adressen beginnen immer mit "bc" ("tb" für Testnet) im HRP (Human Readable Part), gefolgt vom Datenteil,
               der eine Angabe der Segwit-Version (zwischen 0 und 16 - beide Ziffern jeweils inklusive) und den restlichen Datenteil
               enthält. Dieser restliche Datenteil darf "1", "b", "i" und "o" nicht enthalten. Üblicherweise werden die SegWit-BTC-Adressen
               in Kleinbuchstaben geschrieben, Großbuchstaben oder mixed case ist aber grundsätzlich genauso valide. Für weitere
               Informationen wird auf <a href="https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki#Segwit_address_format" target="_blank">
-              BIP173</a> verwiesen.</p>
+              BIP173</a> verwiesen. Insgesamt ist eine solche BTC-Adresse zwischen 14 und 74 Stellen lang, für den RegEx müssen
+              demnach 3 Stellen für das "bc1" am Anfang abgezogen werden.</p>
         </li>
       </ul>
 
