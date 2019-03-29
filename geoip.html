@@ -72,15 +72,27 @@
 
       <h2>Datenbank herunterladen</h2>
       <p>Anschließend benötigen wir noch eine Datenbank, in der wir nachschlagen können. Die Firma Maxmind hat solche Datenbanken
-        „im Angebot“, und zwar auch kostenlose. Die Datenbanken liegen nach dem Download mit nachfolgendem Skript unter ~/Maxmind.</p>
-      <p>Die Datenbanken werden jeden ersten Dienstag im Monat aktualisiert, man muss also regelmäßig updaten. Wir bedienen uns
-        daher dieses Skripts:</p>
+        „im Angebot“, und zwar auch kostenlose. Ich habe mir hierfür in meinem Home-Verzeichnis ein Verzeichnis mit dem Namen "GeoLite"
+    	angelegt.</p>
+
+      <p>Nach dem Entpacken des Archivs bekommt dieses einen Namen nach der Struktur "GeoLite2-City" plus die jeweilige
+      	Datumsangabe. Da wir dieses Verzeichnis bei der Verwendung des Befehls "mmdblookup" mit angeben müssen, wäre es schön, wenn sich
+      	der Verzeichnisname nicht immer ändern würde. Außerdem sollte das heruntergeladene Archiv nach dem Entpacken gelöscht werden,
+      	damit man nach einem erneuten Download - bei dem an das aktuell heruntergeladene Archiv eine Zahl angehängt würde - nicht das alte
+      	Archiv erneut entpackt wird.</p>
+
+      <p>Die Datenbanken werden regelmäßig aktualisiert, man muss sie also immer wieder updaten. Wir bedienen uns
+        daher dieses Skripts, welches in dem Verzeichnis platziert wird, in dem wir die Datenbank speichern wollen:</p>
 
       <p class="befehl">#!/bin/bash<br>
-        cd ~/Maxmind<br>
         wget https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz || { echo 'Could not download GeoLiteCity, exiting.' ; exit 1; }<br>
-        tar -xzf GeoLite2-City.tar.gz<br>
+        tar -xzf GeoLite2-City.tar.gz -C GeoLite2-City --strip-components 1<br>
+        rm GeoLite2-City.tar.gz
       </p>
+
+      <p>Das Skript sorgt dafür, dass die Datenbank heruntergeladen wird, dass das Verzeichnis zum Entpacken "GeoLite2-City" heißt (ohne
+      	die automatische Datumsangabe) und dass der eigentliche Verzeichnisname nicht genutzt wird. Das Verzeichnis "GeoLite2-City" muss vor
+      	der ersten Verwendung von Hand angelegt werden. Zum Schluss wird das Archiv gelöscht.</p>
 
       <p>Dieses Skript speichern wir im o.g. Verzeichnis und führen es dann bei Bedarf mittels</p>
       <p class="befehl">./update.sh</p>
