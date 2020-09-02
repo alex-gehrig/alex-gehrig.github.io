@@ -97,9 +97,12 @@
           <p class="befehl">([0-9]{1,3}\.){3}[0-9]{1,3}</p>
         </li>
         <li><p>Legacy-BTC-Adressen</p>
-          <p class="befehl">^[13][a-zA-Z0-9]{26,35}$</p>
-          <p class="befehl">^[13][a-km-zA-HJ-NP-Z1-9]{26,35}$</p>
-          <p class="befehl">^1[1-9A-Za-z][^OlI]{26,35}$</p>
+          <p class="befehl">^[13][a-zA-Z0-9]{25,34}$</p>
+          <p>Dieser RegEx ist dahingehend unpräzise, dass auch die eigentlich nicht zulässigen Zeichen "I" (großes "i"), "l" (kleines "L"),
+              "O" (großes "o") und "0" (Null) einbezogen werden.
+          <p class="befehl">^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$</p>
+          <p>Hier werden die ungültigen Zeichen explizit ausgenommen.</p>
+          <p>Die Verwendung dieses RegEx ist entsprechend präziser und sollte vorrangig erfolgen.<p>
         </li>
         <li>
           <p>SegWit-BTC-Adressen</p>
