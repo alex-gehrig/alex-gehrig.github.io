@@ -108,6 +108,17 @@
           <p class="befehl">git remote add origin https://meindienst/mein-benutzername/mein-projekt.git</p></li>
       </ul>
 
+      <h2>Neuer Name für den Standard-Branch</h2>
+      <p>Der Standard-Branch heißt nun 'main' und nicht mehr 'master'. Dies führt beim pushen zu Problemen. Daher sind folgende
+      Schritte einmalig erforderlich - das lokale Repository hat nämlich immer noch 'master' als Standard-Branch.</p>
+      <ul>
+          <li>lokalen Branch in 'main' umbenennen:
+          <p class="befehl">git branch -M main</p></li>
+          <li>den Branch 'main' für den Upstream festlegen:
+          <p class="befehl">git push -u origin main</p></li>
+      </ul>
+      <p>Ab jetzt kann man wie bisher weiterarbeiten.</p>
+
     </div><!-- /.container -->
 
 
